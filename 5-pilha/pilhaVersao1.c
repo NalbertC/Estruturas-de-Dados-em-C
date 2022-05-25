@@ -16,7 +16,8 @@ typedef struct no{
     struct no *proximo; 
 }No;
 
-//Prototipos 
+//Prototipos das funcoes
+void menu();
 Pessoa ler_pessoa();
 void imprimir_pessoa();
 
@@ -28,15 +29,16 @@ No* desempilhar(No **topo);
 
 void imprimir_pilha(No *topo);
 
+//Funcao principal
 int main(){
 	No *remover, *topo = NULL;
 	int opcao;
-	
-	printf("OPCOES:\n0 - Sair\n1 - Empilhar\n2 - Desempilhar\n3 - Imprimir\n");
-	scanf(" %d", &opcao);
-	getchar();
-	
+			
 	do{
+		menu();
+		scanf("%d", &opcao);
+		getchar();
+		
 		switch(opcao){
 			case 0:
 				printf("\nSaindo..........\n");
@@ -66,19 +68,32 @@ int main(){
 	return 0;
 }
 
+//Funcoes
+void menu(){
+	printf("\nMENU DE OPCOES");
+    printf("\n0 - Sair\n1 - Empilhar\n2 - Desempilhar\n3 - Imprimir\n");
+    printf("Digite sua opcao: ");
+}
+
 Pessoa ler_pessoa(){
-	Pessoa p;
-	
-	printf("\nDigite um nome: ");
-	fflush(stdin);
-	gets(p.nome);
-	printf("Data de nascimento: ");
-	scanf(" %d%d%d", &p.data.dia, &p.data.mes, &p.data.ano);
-	return p;
+    Pessoa p;
+
+    printf("\nDigite nome: ");
+    fflush(stdin);
+    gets(p.nome);
+    printf("Data de nascimento DD MM AAAA:\n");
+    printf("Dia: ");
+    scanf("%d", &p.data.dia);
+    printf("Mes: ");
+    scanf("%d", &p.data.mes);
+    printf("Ano: ");
+    scanf("%d", &p.data.ano);
+    printf("\n\n");
+    return p;
 }
 
 void imprimir_pessoa(Pessoa p){
-	printf("\nNome: %s\nData de nascimento: %d/%d/%d" , p.nome, p.data.dia, p.data.mes, p.data.ano);
+	printf("\nNome: %s\nData de nascimento: %d/%d/%d\n" , p.nome, p.data.dia, p.data.mes, p.data.ano);
 }
 
 No* empilhar(No *topo){
@@ -113,7 +128,7 @@ void imprimir_pilha(No *topo){
 		imprimir_pessoa(topo->p);
 		topo = topo->proximo;
 	}
-	printf("\n|----------- FIM PILHA -----------|\n");
+	printf("\n|----------- FIM PILHA -----------|\n\n");
 }
 
 
