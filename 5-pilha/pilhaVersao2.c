@@ -72,7 +72,7 @@ int main(){
 			imprimir_pilha(&pilha);
 			break;
 		default:
-			printf("\nOpcao invalida!\n");
+			printf("\nOpcao invalida!\a\n");
 				
 		}
 	}while(opcao != 0);

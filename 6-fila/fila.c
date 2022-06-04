@@ -73,7 +73,7 @@ int main(){
 		
 		switch(opcao){
 			case 0:
-				printf("\nSaindo........\n");
+				printf("\n\nSaindo........\n");
 				break;
 				
 			case 1:
